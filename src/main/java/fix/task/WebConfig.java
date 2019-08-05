@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 @Configuration
 public class WebConfig {
     @Bean
-    public ServletRegistrationBean<HttpServlet> hourseServlet() {
+    public ServletRegistrationBean<HttpServlet> hourseServlet(HourseService hourseService) {
         ServletRegistrationBean<HttpServlet> sRBean = new ServletRegistrationBean<>();
-        HourseService hourseService = new HourseService();
         sRBean.setServlet(new HourseServlet(hourseService));
         sRBean.addUrlMappings("/hourse/servlet/count");
         sRBean.setLoadOnStartup(1);

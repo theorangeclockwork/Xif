@@ -17,16 +17,13 @@ public class HourseController {
     }
 
     @RequestMapping(value = "/hourse/rest/count", method = RequestMethod.GET)
-    @ResponseBody
     public int getCount(
             @RequestParam(value = "width") String width,
             @RequestParam(value = "height") String height,
             @RequestParam(value = "start") String start,
             @RequestParam(value = "end") String end
     ) {
-        List<Position> passedSteps = new ArrayList<>();
-        passedSteps.add(new Position(start));
-        return hourseService.findAndCount(passedSteps, new Position(end), 1, Integer.parseInt(width), Integer.parseInt(height), 1);
+        return hourseService.findAndCount(new Position(start), new Position(end), 1, Integer.parseInt(width), Integer.parseInt(height), 1);
     }
 
 }

@@ -18,11 +18,7 @@ public class HourseServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
-//        response.setContentType("application/json");
-//        response.setCharacterEncoding("UTF-8");
-        List<Position> passedSteps = new ArrayList<>();
-        passedSteps.add(new Position(request.getParameter("start")));
-        out.println(hourseService.findAndCount(passedSteps,
+        out.println(hourseService.findAndCount(new Position(request.getParameter("start")),
                 new Position(request.getParameter("end")),
                 1, Integer.parseInt(request.getParameter("width")),
                 Integer.parseInt(request.getParameter("height")),
