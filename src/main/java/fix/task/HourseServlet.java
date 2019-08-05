@@ -9,18 +9,23 @@ import java.io.PrintWriter;
 public class HourseServlet extends HttpServlet {
 
     private final HourseService hourseService;
+    private final ValidationService validationService;
 
-    public HourseServlet(HourseService hourseService) {
+    public HourseServlet(HourseService hourseService, ValidationService validationService) {
         this.hourseService = hourseService;
+        this.validationService = validationService;
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
-        out.println(hourseService.findAndCount(new Position(request.getParameter("start")),
-                new Position(request.getParameter("end")),
-                1, Integer.parseInt(request.getParameter("width")),
-                Integer.parseInt(request.getParameter("height")),
-                1));
+        if (validationService.checkParams(request.getParameter("width"), request.getParameter("height"), request.getParameter("start"), request.getParameter("end"))) {
+            out.println(hourseService.findAndCount(new Position(request.getParameter("start")),
+                    new Position(request.getParameter("end")),
+                    1, Integer.parseInt(request.getParameter("width")),
+                    Integer.parseInt(request.getParameter("height")),
+                    1));
+        } else System.out.println("CheckParamsError");
+
     }
 
 }

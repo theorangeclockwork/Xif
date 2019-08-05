@@ -1,13 +1,11 @@
 package fix.task;
-
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Util {
 
     public static int convertToDecimal(String str, int base) {
-        int value = 0;
+        int value;
         int result = 0;
         int power = 0;
         str = str.toLowerCase();
@@ -17,19 +15,29 @@ public class Util {
             result += value * Math.pow(base, power);
             power++;
         }
+        System.out.println(result);
         return result;
     }
 
     public static String extractVertical(String pos) {
         Pattern pattern = Pattern.compile("([a-zA-Z]+)");
         Matcher matcher = pattern.matcher(pos);
-            return matcher.group(1);
+        if (matcher.find())
+        {
+            System.out.println(matcher.group(1));
+            return (matcher.group(1));
+        } else return pos;
     }
 
     public static int extractHorizontal(String pos) {
         Pattern pattern = Pattern.compile("([\\d]+)");
         Matcher matcher = pattern.matcher(pos);
+        if (matcher.find())
+        {
+            System.out.println(matcher.group(1));
             return Integer.parseInt(matcher.group(1));
+        } else return -1;
+
     }
 
 }

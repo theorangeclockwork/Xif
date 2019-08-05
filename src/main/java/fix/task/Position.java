@@ -8,9 +8,7 @@ public class Position {
     private int horizontal; // порядковый номер горизонтали
 
     public Position(String pos) {
-//        vertical = (int) pos.toLowerCase().charAt(0) - 96;
         vertical = Util.convertToDecimal(Util.extractVertical(pos), 26);
-//        horizontal = Character.getNumericValue(pos.charAt(1));
         horizontal = Util.extractHorizontal(pos);
     }
 
