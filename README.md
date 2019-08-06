@@ -1,5 +1,5 @@
 # Xif
-При помощи командной строки:
+**При помощи командной строки:**
   1. cd *папка с проектом (пример: cd C:\Users\...\project_name)*
   2. mvn package
   После успешной сборки проекта:
@@ -8,6 +8,6 @@
   Запросы доступны по адресам localhost:8080/hourse/servlet/count и http://localhost:8080/hourse/rest/count
   Пример запроса: http://localhost:8080/hourse/rest/count?width=50&height=50&start=a15&end=w50
 
-При помощи IDE Intellij IDEA:
+**При помощи IDE Intellij IDEA:**
   1. Открыть проект
   2. Запустить 'TaskApplication'
