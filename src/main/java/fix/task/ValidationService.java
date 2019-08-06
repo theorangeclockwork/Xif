@@ -6,16 +6,17 @@ import org.springframework.stereotype.Service;
 public class ValidationService {
 
     public boolean checkParams(String width, String height, String start, String end) {
-        if (checkParamsFormat(width, height, start, end)) {
-            return checkParamsCompatibility(width, height, start, end);
-        } else {
-            System.out.println("checkParamsFormat error");
-            return false;
-        }
+        if (width != null && height != null && start != null && end != null) {
+            if (checkParamsFormat(width, height, start, end)) {
+                return checkParamsCompatibility(width, height, start, end);
+            } else {
+                return false;
+            }
+        } else return false;
     }
 
     public boolean checkParamsFormat(String width, String height, String start, String end) {
-        return width.matches("^(\\d+)$") && height.matches("^(\\d+)$") && end.matches("^([a-zA-Z]+\\d+)$") && start.matches("^([a-zA-Z]+\\d+)$");
+        return width.matches("^([0-9]*[1-9][0-9]*)$") && height.matches("^([0-9]*[1-9][0-9]*)$") && end.matches("^([a-zA-Z]+[0-9]*[1-9][0-9]*)$") && start.matches("^([a-zA-Z]+[0-9]*[1-9][0-9]*)$");
     }
 
     public boolean checkParamsCompatibility(String width, String height, String start, String end) {

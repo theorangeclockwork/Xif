@@ -25,8 +25,7 @@ public class HourseController {
         if (validationService.checkParams(width, height, start, end)) {
         return hourseService.findAndCount(new Position(start), new Position(end), 1, Integer.parseInt(width), Integer.parseInt(height), 1);
         } else {
-            System.out.println("CheckParams error");
-            return -200;
+            return -2;
         }
     }
 

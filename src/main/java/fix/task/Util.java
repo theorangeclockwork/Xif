@@ -15,7 +15,6 @@ public class Util {
             result += value * Math.pow(base, power);
             power++;
         }
-        System.out.println(result);
         return result;
     }
 
@@ -24,9 +23,8 @@ public class Util {
         Matcher matcher = pattern.matcher(pos);
         if (matcher.find())
         {
-            System.out.println(matcher.group(1));
             return (matcher.group(1));
-        } else return pos;
+        } else return "-2";
     }
 
     public static int extractHorizontal(String pos) {
@@ -34,9 +32,8 @@ public class Util {
         Matcher matcher = pattern.matcher(pos);
         if (matcher.find())
         {
-            System.out.println(matcher.group(1));
             return Integer.parseInt(matcher.group(1));
-        } else return -1;
+        } else return -2;
 
     }
 

@@ -17,53 +17,53 @@ public class HourseService {
 
         for (Position currentPos: currentPosList) {
 
-            int ver = currentPos.getVertical();
-            int gor = currentPos.getHorizontal();
+            int vertical = currentPos.getVertical();
+            int horizontal = currentPos.getHorizontal();
 
-            if ( ((ver + 1) <= width) && ((gor + 2) <= height) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver + 1, gor + 2, end, passedSteps, nextStepsCount);
+            if ( ((vertical + 1) <= width) && ((horizontal + 2) <= height) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical + 1, horizontal + 2, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver + 2) <= width) && ((gor + 1) <= height) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver + 2, gor + 1, end, passedSteps, nextStepsCount);
+            if ( ((vertical + 2) <= width) && ((horizontal + 1) <= height) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical + 2, horizontal + 1, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver - 1) >= 1) && ((gor + 2) <= height) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver - 1, gor + 2, end, passedSteps, nextStepsCount);
+            if ( ((vertical - 1) >= 1) && ((horizontal + 2) <= height) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical - 1, horizontal + 2, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver - 2) >= 1) && ((gor + 1) <= height) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver - 2, gor + 1, end, passedSteps, nextStepsCount);
+            if ( ((vertical - 2) >= 1) && ((horizontal + 1) <= height) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical - 2, horizontal + 1, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver - 2) >= 1) && ((gor - 1) >= 1) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver - 2, gor - 1, end, passedSteps, nextStepsCount);
+            if ( ((vertical - 2) >= 1) && ((horizontal - 1) >= 1) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical - 2, horizontal - 1, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver - 1) >= 1) && ((gor - 2) >= 1) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver - 1, gor - 2, end, passedSteps, nextStepsCount);
+            if ( ((vertical - 1) >= 1) && ((horizontal - 2) >= 1) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical - 1, horizontal - 2, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver + 2) <= width) && ((gor - 1) >= 1) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver + 2, gor - 1, end, passedSteps, nextStepsCount);
+            if ( ((vertical + 2) <= width) && ((horizontal - 1) >= 1) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical + 2, horizontal - 1, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
 
-            if ( ((ver + 1) <= width) && ((gor - 2) >= 1) ) {
-                Pair<Boolean, Integer> temp = doPositionCheck(ver + 1, gor - 2, end, passedSteps, nextStepsCount);
+            if ( ((vertical + 1) <= width) && ((horizontal - 2) >= 1) ) {
+                Pair<Boolean, Integer> temp = doPositionCheck(vertical + 1, horizontal - 2, end, passedSteps, nextStepsCount);
                 if (temp.getKey()) return count;
                 else nextStepsCount = temp.getValue();
             }
@@ -78,8 +78,8 @@ public class HourseService {
     }
 
 
-    public static Pair<Boolean, Integer> doPositionCheck(int ver, int gor, Position end, List<Position> passedSteps, int nextStepsCount) {
-        Position posTemp = new Position(ver, gor);
+    public static Pair<Boolean, Integer> doPositionCheck(int vertical, int horizontal, Position end, List<Position> passedSteps, int nextStepsCount) {
+        Position posTemp = new Position(vertical, horizontal);
         if ( posTemp.equals(end) ) return new Pair<>(true, nextStepsCount);
         else if (passedSteps.stream().noneMatch(p -> p.equals(posTemp))) {
             passedSteps.add(posTemp);
@@ -93,7 +93,5 @@ public class HourseService {
     public int findAndCount(Position start, Position end, int count, int width, int height, int currentStepsCount) {
         return findAndCount(new ArrayList<>(Collections.singletonList(start)), end, count, width, height, currentStepsCount);
     }
-
-
 
 }
