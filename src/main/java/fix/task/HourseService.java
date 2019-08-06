@@ -91,7 +91,11 @@ public class HourseService {
 
 
     public int findAndCount(Position start, Position end, int count, int width, int height, int currentStepsCount) {
-        return findAndCount(new ArrayList<>(Collections.singletonList(start)), end, count, width, height, currentStepsCount);
+        if (end.equals(start)) {
+            return 0;
+        }
+        else
+            return findAndCount(new ArrayList<>(Collections.singletonList(start)), end, count, width, height, currentStepsCount);
     }
 
 }
