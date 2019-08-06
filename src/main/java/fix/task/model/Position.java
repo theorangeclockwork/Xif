@@ -1,4 +1,6 @@
-package fix.task;
+package fix.task.model;
+
+import fix.task.util.Util;
 
 import java.util.Objects;
 

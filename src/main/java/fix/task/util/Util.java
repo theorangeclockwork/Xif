@@ -1,4 +1,4 @@
-package fix.task;
+package fix.task.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

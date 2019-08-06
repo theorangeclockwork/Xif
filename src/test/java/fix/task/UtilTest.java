@@ -1,5 +1,6 @@
 package fix.task;
 
+import fix.task.util.Util;
 import org.junit.Assert;
 import org.junit.Test;
 

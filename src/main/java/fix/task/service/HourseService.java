@@ -1,5 +1,6 @@
-package fix.task;
+package fix.task.service;
 
+import fix.task.model.Position;
 import javafx.util.Pair;
 import org.springframework.stereotype.Service;
 

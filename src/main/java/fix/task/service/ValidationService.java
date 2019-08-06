@@ -1,5 +1,6 @@
-package fix.task;
+package fix.task.service;
 
+import fix.task.util.Util;
 import org.springframework.stereotype.Service;
 
 @Service

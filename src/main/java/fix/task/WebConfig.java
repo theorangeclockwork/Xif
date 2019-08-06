@@ -1,5 +1,8 @@
 package fix.task;
 
+import fix.task.controller.HourseServlet;
+import fix.task.service.HourseService;
+import fix.task.service.ValidationService;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

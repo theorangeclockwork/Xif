@@ -1,5 +1,8 @@
-package fix.task;
+package fix.task.controller;
 
+import fix.task.service.HourseService;
+import fix.task.model.Position;
+import fix.task.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

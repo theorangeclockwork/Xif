@@ -1,4 +1,8 @@
-package fix.task;
+package fix.task.controller;
+
+import fix.task.service.HourseService;
+import fix.task.model.Position;
+import fix.task.service.ValidationService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

@@ -1,7 +1,7 @@
 package fix.task;
 
+import fix.task.service.ValidationService;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
